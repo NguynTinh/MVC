@@ -1,0 +1,48 @@
+﻿@using MvcBookStore.Models @using PagedList.Mvc; @model PagedList.PagedList<SACH>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="padding-top: 20px;">Sách mới</h2>
+<div class="row">
+    @foreach (var sach in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <ul class="product_box">
+                <a href="@Url.Action("Details", "BookStore", new { id = sach.Masach })">
+                    <div class="hinhanh_sanpham">
+                        <img alt="@sach.Tensach" src="~/images/@sach.Anhbia" width="300" />
+                    </div>
+                    <div>
+                        <br />
+                        <h4 style="height:40px;">
+                            @sach.Tensach
+                        </h4>
+
+                        <p></p>
+                        <div class="ratings">
+                            <p class="pull-right">15 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span> 
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span> 
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MenuTrang">
+                        @Html.PagedListPager(Model, page=>Url.Action("Index", new {page=page}))
+                    </div>
+                    <style>
+                        .MenuTrang li {
+                            display: inline;
+                        }
+                    </style>
+</ul>
+        </div>
+
+    }
+

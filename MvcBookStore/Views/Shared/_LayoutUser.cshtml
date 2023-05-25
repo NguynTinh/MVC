@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="inner">
+            <div id="header">
+                <h1><img src="~/images/logo.gif" width="744" height="63" alt="Truyện tranh online" /></h1>
+                <!-- end nav -->
+                <a href="#"><img src="~/images/1.png" width="744" height="145" alt="Harry Potter cd" /></a> <a href="#"><img src="~/images/2.png" width="745" height="75" alt="" /></a>
+            </div>
+            <!-- end header -->
+            <dl id="browse">
+                @Html.Action("Chude", "BookStore")
+                @Html.Action("Nhaxuatban", "BookStore")
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink("TRANG CHỦ", "Index", "BookStore")
+                        </li>
+                        <li>
+
+                            @Html.ActionLink("ĐĂNG KÝ", "Dangky", "Nguoidung")
+                        </li>
+                        <li>
+                            @Html.ActionLink("ĐĂNG NHẬP", "Dangnhap", "Nguoidung")
+                        </li>
+                        <li>
+                            @Html.Action("GiohangPartial", "Giohang")
+                        </li>
+                    </ul>
+                </div>
+        @RenderBody()
+</body>
+</body>
+</html>
